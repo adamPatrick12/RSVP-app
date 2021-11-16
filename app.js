@@ -35,7 +35,7 @@ filterCheckBox.addEventListener('change', (e) => {
     
 
 function createList (text){
-    const li = document.createElement('li');                   //Getting and plaing user input into <span>
+    const li = document.createElement('li');                   //Getting and placing user input into <span>
     const span = document.createElement('span');
     span.textContent = text;                            
     li.appendChild(span);
@@ -78,14 +78,14 @@ form.addEventListener('submit', (e)  => {
 
     });
 
-    ul.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON'){
+    ul.addEventListener('click', (e) => {             
+        if (e.target.tagName === 'BUTTON'){         //checking for button selection
             const button = e.target;
             const li = button.parentNode;
             const ul = li.parentNode;           
-            if (button.textContent === 'Remove'){
+            if (button.textContent === 'Remove'){      //checking if user selected 'Remove' and deleting list child
             ul.removeChild(li);
-        } else if (button.textContent === 'Edit'){
+        } else if (button.textContent === 'Edit'){      //checking if user selected 'Edit' and creating new input box/span
             const span = li.firstElementChild;
             const input = document.createElement('input');
             input.type = 'text';
@@ -93,7 +93,7 @@ form.addEventListener('submit', (e)  => {
             li.insertBefore(input, span);
             li.removeChild(span);
             button.textContent = 'save';
-        } else if (button.textContent === 'save'){
+        } else if (button.textContent === 'save'){      //checking if user selected 'Save' and appending new input
             const input = li.firstElementChild;
             const span = document.createElement('span');
             span.textContent = input.value;
